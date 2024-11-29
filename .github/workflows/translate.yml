@@ -3,7 +3,8 @@ name: Translate GitBook Content
 on:
   push:
     paths:
-      - "content/**/*.md"  # Trigger on Markdown file changes
+      - "content/**/*.md"  # Watch for changes in content folder
+      - "web/**/*"          # Watch for changes in web folder
 
 jobs:
   translate:
@@ -36,9 +37,8 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add translated/ja
+          git add translated/**
           git commit -m "Add translated files"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
- 
