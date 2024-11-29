@@ -1,10 +1,9 @@
-name: Translate GitBook Content
+name: Translate GitBook Content to Japanese
 
 on:
   push:
     paths:
-      - "content/**/*.md"  # Watch for changes in content folder
-      - "web/**/*"          # Watch for changes in web folder
+      - "TreasureIsland-JP/**/*.md"  # Trigger only on Markdown file changes
 
 jobs:
   translate:
@@ -32,13 +31,13 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
-      # Step 5: Commit and push the translated files
+      # Step 5: Commit and push translated files
       - name: Commit translated files
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add translated/**
-          git commit -m "Add translated files"
+          git add TreasureIsland-JP/
+          git commit -m "Overwrite TreasureIsland-JP with translated content"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
