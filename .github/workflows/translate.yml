@@ -1,9 +1,11 @@
-name: Translate GitBook Content to Japanese
+name: Translate and Overwrite Content
 
 on:
-  push:
-    paths:
-      - "TreasureIsland-JP/**/*.md"  # Trigger only on Markdown file changes
+  workflow_dispatch:  # Allows manual triggering of the workflow
+  # Optionally, you can trigger on push events if desired
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   translate:
@@ -13,6 +15,8 @@ jobs:
       # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensure full history is fetched
 
       # Step 2: Set up Python
       - name: Set up Python
@@ -23,21 +27,21 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |
-          pip install openai pyyaml markdown
+          pip install openai
 
       # Step 4: Translate content
       - name: Translate content
-        run: python scripts/translate.py
+        run: python translate.py
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
-      # Step 5: Commit and push translated files
-      - name: Commit translated files
+      # Step 5: Commit and push the translated files
+      - name: Commit and push changes
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add TreasureIsland-JP/
-          git commit -m "Overwrite TreasureIsland-JP with translated content"
-          git push
+          git add .
+          git commit -m "Translate content from Korean to Japanese"
+          git push origin ${{ github.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
