@@ -1,9 +1,9 @@
 import os
-import openai
+from openai import OpenAI
 from pathlib import Path
 
-# Set OpenAI API key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# Initialize OpenAI client
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 # Paths
 CONTENT_DIR = Path("content/")  # Folder synced from GitBook
@@ -11,14 +11,15 @@ OUTPUT_DIR = Path("translated/ja/")  # Translated content folder
 
 def translate_to_japanese(content):
     """Translate text to Japanese using OpenAI GPT-4 API."""
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": "You are a professional translator."},
             {"role": "user", "content": f"Translate this Markdown content to Japanese:\n\n{content}"}
         ]
     )
-    return response['choices'][0]['message']['content']
+    # Extract the translated text from the response
+    return response.choices[0].message.content
 
 def main():
     # Ensure output directory exists
