@@ -5,9 +5,8 @@ from pathlib import Path
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 # Paths
-CONTENT_DIR = Path("web/")  # Folder containing the files to be translated
-OUTPUT_DIR = Path("translated/ja-web/")  # Translated output folder
-
+CONTENT_DIR = Path("TreasureIsland-JP/")  # Target space content folder
+OUTPUT_DIR = CONTENT_DIR  # Overwrite directly in the same directory
 
 def translate_to_japanese(content):
     print("Translating content...")
@@ -21,15 +20,10 @@ def translate_to_japanese(content):
     return response.choices[0].message.content
 
 def main():
-    # Ensure output directory exists
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
     # Iterate through Markdown files in the content folder
     for file in CONTENT_DIR.rglob("*.md"):
         print(f"Processing file: {file}")
-        relative_path = file.relative_to(CONTENT_DIR)
-        output_path = OUTPUT_DIR / relative_path
-
+        
         # Read file content
         with open(file, "r", encoding="utf-8") as f:
             content = f.read()
@@ -41,11 +35,10 @@ def main():
             print(f"Error during translation: {e}")
             continue
 
-        # Write to output directory
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(output_path, "w", encoding="utf-8") as f:
+        # Overwrite the original file
+        with open(file, "w", encoding="utf-8") as f:
             f.write(translated_content)
-        print(f"Translated file saved to: {output_path}")
+        print(f"Translated file written to: {file}")
 
 if __name__ == "__main__":
     main()
