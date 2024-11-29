@@ -3,7 +3,7 @@ name: Translate GitBook Content
 on:
   push:
     paths:
-      - "**/*.md"  # Trigger on Markdown file changes
+      - "content/**/*.md"  # Trigger on Markdown file changes
 
 jobs:
   translate:
@@ -30,3 +30,14 @@ jobs:
         run: python scripts/translate.py
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      # Step 5: Commit and push the translated files
+      - name: Commit translated files
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add translated/ja
+          git commit -m "Add translated files"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
