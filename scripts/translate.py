@@ -4,8 +4,10 @@ from pathlib import Path
 
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
-CONTENT_DIR = Path("content/")  # Folder synced from GitBook
-OUTPUT_DIR = Path("translated/ja/")  # Translated content folder
+# Paths
+CONTENT_DIR = Path("web/")  # Folder containing the files to be translated
+OUTPUT_DIR = Path("translated/ja-web/")  # Translated output folder
+
 
 def translate_to_japanese(content):
     print("Translating content...")
