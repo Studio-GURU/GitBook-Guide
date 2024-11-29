@@ -1,6 +1,6 @@
 ---
 description: 보물섬에서 제공하는 서비스를 일반 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
-icon: star-shooting 
+icon: star-shooting
 ---
 
 # 보물섬 시작하기
