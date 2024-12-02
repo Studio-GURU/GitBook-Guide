@@ -1,46 +1,46 @@
 ---
-description: 보물섬에서 제공하는 서비스를 일반 브라우저를 통해 연동시 필요한 설정에 대해 알아 보세요.
+description: ボムルソムが提供するサービスを一般ブラウザで連携する際に必要な設定について確認してください。
 icon: star-shooting
 ---
 
-# 보물섬 시작하기
+# ボムルソムを始める
 
 {% hint style="warning" %}
-요구 사항은 보물섬 API의 최신 상태를 기준으로 명시됩니다.
+要件はボムルソムAPIの最新状態を基準に記載されています。
 
 ***
 
-일반적인 브라우져를 통해 서비스 연동시 참고 바랍니다.
+一般的なブラウザを通じてサービスを連携する際に参考にしてください。
 
-[WEB VIEW(인앱 브라우져)](../web-view/start/) 또는 [ANDROID SDK](broken-reference), [iOS SDK](broken-reference) 연동 방식은 별도 가이드를 참고 바랍니다.
+[WEB VIEW(アプリ内ブラウザ)](../web-view/start/) または [ANDROID SDK](broken-reference)、[iOS SDK](broken-reference) の連携方法については、別途ガイドを参照してください。
 
 ***
 
-:ballot\_box\_with\_check:  <mark style="color:red;">**기존 화면이 아닌 새로운 창을 통해 보물섬을 실행하세요 !**</mark>
+:ballot\_box\_with\_check:  <mark style="color:red;">**既存画面ではなく、新しいウィンドウでボムルソムを実行してください！**</mark>
 {% endhint %}
 
 ***
 
-## 서비스 소개
+## サービス紹介
 
-### [보물섬 서비스](standard.md)
+### [ボムルソムサービス](standard.md)
 
-:heavy\_check\_mark: 파트너사의 회원 정보를 사용하지 않습니다.
+:heavy\_check\_mark: パートナー企業の会員情報を使用しません。
 
-:heavy\_check\_mark: 보물섬의 별도 회원 정책을 사용합니다.
+:heavy\_check\_mark: ボムルソム独自の会員ポリシーを使用します。
 
 ***
 
-### [보물섬 채널링 서비스](channeling/)
+### [ボムルソムチャネリングサービス](channeling/)
 
-:heavy\_check\_mark: 파트너사의 회원 정보를 연동합니다.
+:heavy\_check\_mark: パートナー企業の会員情報を連携します。
 
-:heavy\_check\_mark: 파트너사의 회원 정책을 사용합니다.
+:heavy\_check\_mark: パートナー企業の会員ポリシーを使用します。
 
-:heavy\_check\_mark: 메인 화면 진입 경로에 <mark style="color:red;">**sign parameter**</mark>를 전달하여 보물섬 메인화면에 진입합니다.
+:heavy\_check\_mark: メイン画面へのアクセス経路に <mark style="color:red;">**sign parameter**</mark> を渡してボムルソムのメイン画面にアクセスします。
 
-#### 컨텐트 조회
+#### コンテンツ照会
 
-:heavy\_check\_mark: [추천 컨텐트 목록 조회](channeling/recommendation.md)
+:heavy\_check\_mark: [おすすめコンテンツリストの照会](channeling/recommendation.md)
 
-:heavy\_check\_mark: [최근 본 작품 조회](channeling/recently.md)
+:heavy\_check\_mark: [最近見た作品の照会](channeling/recently.md)
