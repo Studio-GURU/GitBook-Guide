@@ -1,7 +1,7 @@
 ---
-description: 보물섬 유료 재화 구매 서비스 연동을 위한 방법을 안내 합니다.
+description: トレジャーアイランドの有料コンテンツ購入サービス連携方法についてご案内します。
 icon: credit-card
 ---
+# インアップ購入サービス
 
-# 인앱 구매 서비스
-
+<userStyle>Normal</userStyle>
