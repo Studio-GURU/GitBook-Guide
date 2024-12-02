@@ -1,36 +1,36 @@
 ---
-description: 보물섬 ANDROID SDK를 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+description: 宝島 ANDROID SDKを使用して宝島のメイン画面を実行する方法についてご案内します。
 icon: user-group
 ---
 
-# 보물섬 채널링
+# 宝島チャネリング
 
 {% hint style="success" %}
-파트너사의 회원을 보물섬 계정과 연동하여 사용하고자 하는 경우
+パートナー企業の会員を宝島アカウントと連携して使用する場合
 
 ***
 
-전달된 파트너사의 회원정보를 통해 보물섬 계정을 생성합니다.&#x20;
+パートナー企業から提供された会員情報を使用して宝島アカウントを作成します。&#x20;
 
-:heavy\_check\_mark: **파트너사의 앱의 운영 방식에 따라 로그인 여부 확인이 가능한 기능 구현이 필요 할 수 있습니다.**
+:heavy_check_mark: **パートナー企業のアプリの運用方式によって、ログイン状態の確認が可能な機能の実装が必要になる場合があります。**
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>채널링 서비스 플로우</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>チャネリングサービスのフロー</p></figcaption></figure>
 
 ***
 
-## 준비 사항
+## 準備事項
 
-보물섬 채널링 서비스 이용을 위해서는 :link:[start.md](../start.md "mention") -> :link:[.](./ "mention")의 기본 설정이 완료 되어야 합니다.
+宝島チャネリングサービスを利用するためには、:link:[start.md](../start.md "mention") -> :link:[.](./ "mention")の基本設定が完了している必要があります。
 
 ***
 
-## 연동 순서
+## 連携手順
 
-1. `Launcher.ChannelingBuilder` -> Builder 인스턴스를 생성합니다.
-2. `Launcher.ChannelingBuilder Option` 회원정보 및 필요한 옵션을 설정합니다.
-3. `Launcher.ChannelingBuilder build()` 함수를 호출하여 인스턴스를 생성합니다.
-4. 생성된 `Launcher` 인스턴스를 통해 `launch(activity)` 함수를 호출 합니다.
+1. `Launcher.ChannelingBuilder` -> Builderインスタンスを作成します。
+2. `Launcher.ChannelingBuilder Option` 会員情報および必要なオプションを設定します。
+3. `Launcher.ChannelingBuilder build()` 関数を呼び出してインスタンスを生成します。
+4. 生成された`Launcher`インスタンスを通じて`launch(activity)`関数を呼び出します。
 
 ***
 
@@ -40,35 +40,35 @@ icon: user-group
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
-// 빌더 인스턴스를 생성합니다.
+// ビルダーインスタンスを生成します。
 val builder = Launcher.ChannelingBuilder()
 
-// 사용자 정보를 설정합니다 (회원고유키, 성별)
-// 사용자 로그인 상태의 경우만 해당 값을 설정 합니다.
-builder.withUserId(userId = "{회원고유키}")
+// ユーザー情報を設定します（会員固有キー、性別）
+// ユーザーがログイン状態の場合のみ、該当値を設定します。
+builder.withUserId(userId = "{会員固有キー}")
 builder.withGender(gender = Launcher.Gender.MALE)
 
-// ADID값을 설정합니다
+// ADID値を設定します
 builder.withAdvertisingId(advertisingId = "00000000-0000-0000-0000-000000000000")
 
-// Header 스타일을 설정합니다.
+// ヘッダースタイルを設定します。
 val headerModel = SceneHeaderModel.Builder()
-    .withHeaderTitle(title = "보물섬")
+    .withHeaderTitle(title = "宝島")
     .withHeaderStyle(style = SceneHeaderModel.HeaderStyle.CLOSE)
     .build()    
 builder.withHeader(headerModel = headerModel)
 
-// Launcher 인스턴스를 생성합니다.
+// Launcherインスタンスを生成します。
 val launcher = builder.build()
 
-// 보물섬을 실행 합니다.
+// 宝島を実行します。
 launcher.launch(
-    // 액티비티
+    // アクティビティ
     ownerActivity = {ACTIVITY}, 
-    // 결과 리스너
+    // 結果リスナー
     listener = object : Launcher.Listener {
         override fun onLaunched(success: Boolean) {
-            // success: 성공 여부            
+            // success: 成功可否            
        }
     }
 )
@@ -79,41 +79,40 @@ launcher.launch(
 {% tab title="JAVA" %}
 {% code lineNumbers="true" %}
 ```java
-// 빌더 인스턴스를 생성합니다.
+// ビルダーインスタンスを生成します。
 Launcher.ChannelingBuilder builder = new Launcher.ChannelingBuilder();
 
-// 사용자 정보를 설정합니다 (회원고유키, 성별)
-// 사용자 로그인 상태의 경우만 해당 값을 설정 합니다.
-builder.withUserId("{회원고유키}");
+// ユーザー情報を設定します（会員固有キー、性別）
+// ユーザーがログイン状態の場合のみ、該当値を設定します。
+builder.withUserId("{会員固有キー}");
 builder.withGender(Launcher.Gender.FEMALE);
 
-// ADID값을 설정합니다
+// ADID値を設定します
 builder.withAdvertisingId("00000000-0000-0000-0000-000000000000");
 
-// Header 스타일을 설정합니다.
-// Header 스타일을 설정합니다.
+// ヘッダースタイルを設定します。
 SceneHeaderModel.Builder headerBuilder = new SceneHeaderModel.Builder();
-// Header Title(빈값 타이틀 노출 되지 않음)
-headerBuilder.withHeaderTitle("보물섬");
-// Header Use Back Button
+// ヘッダータイトル（空値の場合タイトルは表示されません）
+headerBuilder.withHeaderTitle("宝島");
+// ヘッダーバックボタンの使用
 headerBuilder.withUseBackButton(true);
-// Header Use Close Button
+// ヘッダークローズボタンの使用
 headerBuilder.withUseCloseButton(true);
 SceneHeaderModel headerModel = headerBuilder.build();
 builder.withHeader(headerModel);
 
-// Launcher 인스턴스를 생성합니다.
+// Launcherインスタンスを生成します。
 Launcher launcher = builder.build();
 
-// 보물섬을 실행 합니다.
+// 宝島を実行します。
 launcher.launch(
-    // 액티비티
+    // アクティビティ
     this, 
-    // 결과 리스너
+    // 結果リスナー
     new Launcher.Listener() {
         @Override
         public void onLaunched(boolean success) {
-            // success: 성공 여부
+            // success: 成功可否
         }
     }
 );
@@ -129,77 +128,76 @@ launcher.launch(
 #### 🎈withUserId(userId: String)
 
 {% hint style="info" %}
-**유저의 로그인 상태에 따라 설정합니다.**
+**ユーザーのログイン状態に応じて設定します。**
 
 ***
 
-* 로그인을 필수로 사용하는 앱의 경우
-  * 유저의 고유 식별자를 설정합니다.
-* 로그인을 필수로 사용하지 않는 앱
-  * 별도 값을 설정하지 않으나, SDK에서 로그인 요구에 대한 콜백 처리가 필요합니다.
-  * 앱의 정책에 따라 로그인 유저에게만 접근을 허용 하는 방법등을 유연하게 적용 가능합니다.
+* ログインを必須とするアプリの場合
+  * ユーザーの固有識別子を設定します。
+* ログインを必須としないアプリの場合
+  * 別途値を設定しませんが、SDKでログイン要求に対するコールバック処理が必要です。
+  * アプリのポリシーに応じて、ログインユーザーのみアクセスを許可する方法などを柔軟に適用できます。
 {% endhint %}
 
 | Name     | Type   | Description |
 | -------- | ------ | ----------- |
-| `userId` | string | 파트너사 회원 고유키 |
+| `userId` | string | パートナー企業会員固有キー |
 
 ***
 
 #### 🎈withGender(gender: Launcher.Gender)
 
-회원의 성별을 설정합니다.
+会員の性別を設定します。
 
-:heavy\_check\_mark: 성별 정보 제공이 가능 할 경우 값을 설정합니다.
+:heavy_check_mark: 性別情報の提供が可能な場合、値を設定します。
 
 ⬇ Launcher.Gender
 
 | Name     | Type                     | Description   |
 | -------- | ------------------------ | ------------- |
-| `gender` | enum { `.MALE .FEMALE` } | 파트너사 회원 성별 정보 |
+| `gender` | enum { `.MALE .FEMALE` } | パートナー企業会員の性別情報 |
 
 ***
 
 #### 🎈withAdvertisingId(advertisingId: String)
 
-&#x20;ANDROID ADID를 설정합니다.
+ANDROID ADIDを設定します。
 
-:heavy\_check\_mark: 설정이 없을 경우 SDK에서 별도 추출하여 사용합니다.
+:heavy_check_mark: 設定がない場合、SDKで別途抽出して使用します。
 
 | Name            | Type   | Description  |
 | --------------- | ------ | ------------ |
-| `advertisingId` | string | 안드로이드 광고 식별자 |
+| `advertisingId` | string | Android広告識別子 |
 
 ***
 
 #### 🎈withHeader(headerModel: SceneHeaderModel)
 
-:heavy\_check\_mark: None, Back, Close, Custom 설정을 통해 원하는 해더를 설정 할 수 있습니다.
+:heavy_check_mark: None、Back、Close、Customの設定を通じて希望するヘッダーを設定できます。
 
 | Name          | Type               | Description   |
 | ------------- | ------------------ | ------------- |
-| `headerModel` | `SceneHeaderModel` | 해덩 설정 데이타 클래스 |
+| `headerModel` | `SceneHeaderModel` | ヘッダー設定データクラス |
 
 {% hint style="success" %}
-**설정에 대한 자세한 내용은** [#undefined](options.md#undefined "mention") **가이드를 확인 바랍니다.**
+**設定に関する詳細は** [#undefined](options.md#undefined "mention") **ガイドをご確認ください。**
 {% endhint %}
 
 ***
 
 ## Launcher.launch
 
-보물섬을 실행합니다. 상황에 따라 보물섬 메인 화면 또는 약관 동의 화면이 노출 됩니다.
+宝島を実行します。状況に応じて宝島のメイン画面または利用規約同意画面が表示されます。
 
 #### 🎈launch(ownerActivity: Activity, listener: Launcher.Listener)
 
 | Name            | Type              | Description |
 | --------------- | ----------------- | ----------- |
-| `ownerActivity` | activity          | 안드로이드 액티비티  |
-| `listener`      | Launcher.Listener | 실행 결과 리스너   |
+| `ownerActivity` | activity          | Androidアクティビティ |
+| `listener`      | Launcher.Listener | 実行結果リスナー |
 
 ⬇ Launcher.Listener
 
 | Name                           | Description                  |
 | ------------------------------ | ---------------------------- |
-| `onLaunched(success: Boolean)` | 실행 여부가 'success' 값으로 전달 됩니다. |
-
+| `onLaunched(success: Boolean)` | 実行可否が'success'値として渡されます。 |
