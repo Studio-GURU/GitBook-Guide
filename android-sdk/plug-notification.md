@@ -1,38 +1,26 @@
 ---
-description: 보물섬의 기다리면 무료 모바일 알림을 위한 설정 방법을 안내 합니다.
+description: トレジャーアイランドの待てば無料モバイル通知の設定方法についてご案内します。
 icon: bell-ring
 ---
-
-# 보물섬 알림 서비스@PLUG
-
+# トレジャーアイランド通知サービス@PLUG
 ***
-
 {% hint style="info" %}
-**보물섬의 기다무 서비스 사용시 유저에게 푸시 알림을 보내는 기능입니다.**
-
+**トレジャーアイランドの待てば無料サービス利用時にユーザーにプッシュ通知を送信する機能です。**
 ***
-
-보물섬 알림 서비스는 로컬 푸시로 별도의 서버 연동 작업이 필요하지 않습니다.
+トレジャーアイランド通知サービスはローカルプッシュで、別途のサーバー連携作業が不要です。
 {% endhint %}
-
-<figure><img src="../.gitbook/assets/push_setting.png" alt=""><figcaption><p>기다무 알림 설정 예시 화면</p></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/push_notification.png" alt=""><figcaption><p>기다무 알림 예시 화면</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/push_setting.png" alt=""><figcaption><p>待てば無料通知設定例画面</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/push_notification.png" alt=""><figcaption><p>待てば無料通知例画面</p></figcaption></figure>
 
 ***
 
-## 기본 모듈 적용 하기
-
-기본 블록을 **앱(모듈) 수준의 "build.gradle"** 파일에 설정하세요.
-
+## 基本モジュールの適用
+基本ブロックを**アプリ（モジュール）レベルの"build.gradle"**ファイルに設定してください。
 {% hint style="info" %}
-최신 버전 사용을 권장하며, :link:[release.md](release.md "mention")를 통해 최신 버전을 확인 하세요.
-
+最新バージョンの使用を推奨しており、:link:[release.md](release.md "mention")で最新バージョンを確認してください。
 ***
-
-알림서비스(treasureisland-plug-notify) 버전은 **보물섬 기본 모듈의 버전과 동일합니다**.
+通知サービス（treasureisland-plug-notify）のバージョンは**トレジャーアイランド基本モジュールのバージョンと同一です**。
 {% endhint %}
-
 {% code lineNumbers="true" %}
 ```gradle
 dependencies {
@@ -43,11 +31,9 @@ dependencies {
 
 ***
 
-## SDK 초기화 하기
-
-보물섬 SDK 초기화시 withNotificationOption() 설정을 진행합니다.
-
-<mark style="color:red;">생성된 Builder 인스턴스를 통해 옵션과 SDK 초기화를 진행합니다.</mark>
+## SDKの初期化
+トレジャーアイランドSDK初期化時にwithNotificationOption()設定を行います。
+<mark style="color:red;">生成されたBuilderインスタンスを通じてオプションとSDKの初期化を行います。</mark>
 
 {% tabs %}
 {% tab title="KOTLIN" %}
@@ -57,11 +43,11 @@ class AppApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         SceneConfig.Builder(...)
-        // option 푸시 알림 설정
+        // optionプッシュ通知設定
         .withNotificationOption(
             config = SceneConfig.NotificationOption(
                 allow = true,
-                channelName = "알림 채널명",
+                channelName = "通知チャンネル名",
                 iconResourceId = R.drawable.ic_notification
             )
         )
@@ -71,7 +57,6 @@ class AppApplication : Application() {
 ```
 {% endcode %}
 {% endtab %}
-
 {% tab title="JAVA" %}
 {% code lineNumbers="true" %}
 ```java
@@ -80,10 +65,10 @@ public class AppApplication extends Application {
     public void onCreate() {
         super.onCreate();
         TreasureConfig.Builder builder = new TreasureConfig.Builder(...);
-        // option 푸시 알림 설정
+        // optionプッシュ通知設定
         builder.withNotificationOption(new TreasureConfig.NotificationOption(
             true,
-            "보물섬",
+            "トレジャーアイランド",
             R.drawable.ic_notify
         ));
         TreasureConfig treasureConfig = builder.build();
@@ -98,12 +83,7 @@ public class AppApplication extends Application {
 {% endtabs %}
 
 #### 🎈withNotificationOption(config: SceneConfig.NotificationOption)
-
-기다무 푸시 알림을 설정합니다.
-
-:heavy\_check\_mark: 기본값 -> 푸시 알림을 사용하지 않습니다.
-
+待てば無料プッシュ通知を設定します。
+:heavy\_check\_mark: デフォルト値 -> プッシュ通知を使用しません。
 ⬇ SceneConfig.NotificationOption
-
-<table><thead><tr><th width="242">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>allow</code></td><td>boolean</td><td>푸시 알림 사용 여부<br><code>기본값: false</code></td></tr><tr><td><code>channelName</code></td><td>string(<code>nullable</code>)</td><td>푸시 알림 채널명<br><code>기본값: '보물섬'</code></td></tr><tr><td><code>smallIconResourceId</code></td><td><strong>'@'DrawableRes</strong>(<code>nullable</code>)</td><td>푸시 알림 아이콘 리소스<br><code>기본값: 보물섬 아이콘</code></td></tr></tbody></table>
-
+<table><thead><tr><th width="242">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>allow</code></td><td>boolean</td><td>プッシュ通知使用可否<br><code>デフォルト値: false</code></td></tr><tr><td><code>channelName</code></td><td>string(<code>nullable</code>)</td><td>プッシュ通知チャンネル名<br><code>デフォルト値: 'トレジャーアイランド'</code></td></tr><tr><td><code>smallIconResourceId</code></td><td><strong>'@'DrawableRes</strong>(<code>nullable</code>)</td><td>プッシュ通知アイコンリソース<br><code>デフォルト値: トレジャーアイランドアイコン</code></td></tr></tbody></table>
