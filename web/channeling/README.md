@@ -1,6 +1,6 @@
 ---
-description: ボムルソムチャネリングサービスを連携する方法を案内します。
 icon: user-group
+description: ボムルソムチャネリングサービスを連携する方法を案内します。
 ---
 
 # ボムルソムチャネリング
@@ -10,7 +10,7 @@ icon: user-group
 
 ***
 
-:ballot\_box\_with\_check:  <mark style="color:red;">**既存画面ではなく、新しいウィンドウでボムルソムを実行してください！**</mark>
+:ballot\_box\_with\_check: <mark style="color:red;">**既存画面ではなく、新しいウィンドウでボムルソムを実行してください！**</mark>
 
 :heavy\_check\_mark: メイン画面へのアクセス経路に <mark style="color:red;">**sign parameter**</mark> を渡してボムルソムメイン画面にアクセスします。
 {% endhint %}
@@ -45,15 +45,14 @@ icon: user-group
 
 ### 使用例
 
-https://test.treasurecomics.com/gateway/common?sign=1724922215.7b82817d9487471a8a782c2604883924.lymanTest.M21MZORoc4NbVzq1ZaSC8LgcOKYH9SBIljHYjVOfX5o%3D&returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fmain
-
+https://test.treasurecomics.com/gateway/common?sign=1724922215.7b82817d9487471a8a782c2604883924.lymanTest.M21MZORoc4NbVzq1ZaSC8LgcOKYH9SBIljHYjVOfX5o%3D\&returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fmain
 
 ***
 
-<figure><img src="../../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>案内メッセージ表示例</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/bomulseom_jp (1).jpg" alt=""><figcaption><p>案内メッセージ表示例</p></figcaption></figure>
 
 ***
 
 ## メイン画面
 
-<div align="left"><figure><img src="../../.gitbook/assets/bms_main.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/bomulseom_jp2.jpg" alt=""><figcaption></figcaption></figure></div>
