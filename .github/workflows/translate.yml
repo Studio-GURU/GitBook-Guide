@@ -1,47 +1,44 @@
-name: Translate and Overwrite Content
+name: Translate Content to Japanese
 
 on:
-  workflow_dispatch:  # Allows manual triggering of the workflow
-  # Optionally, you can trigger on push events if desired
-  # push:
-  #   branches:
-  #     - main
+  workflow_dispatch:  # Manual trigger
+  push:
+    branches:
+      - main
+    paths:
+      - '**.md'
+      - '**.txt'
 
 jobs:
   translate:
     runs-on: ubuntu-latest
-
+    
     steps:
-      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Ensure full history is fetched
-
-      # Step 2: Set up Python
+          fetch-depth: 0
+      
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
-
-      # Step 3: Install dependencies
+          python-version: '3.11'
+      
       - name: Install dependencies
         run: |
-          pip install openai
-
-      # Step 4: Translate content
+          python -m pip install --upgrade pip
+          pip install openai pyyaml
+      
       - name: Translate content
-        run: python translate.py
+        run: python scripts/translate.py
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-
-      # Step 5: Commit and push the translated files
+      
       - name: Commit and push changes
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add .
-          git commit -m "Translate content from Korean to Japanese"
-          git push origin ${{ github.ref }}
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Translate content to Japanese" && git push)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
