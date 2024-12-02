@@ -1,13 +1,12 @@
 ---
-description: 스크린 캡처 방지를 통해 콘텐츠를 보호하는 방법을 안내합니다.
+description: スクリーンキャプチャー防止によるコンテンツ保護方法についてご案内します。
 icon: camera-slash
 ---
 
-# 컨텐츠 보호
+# コンテンツ保護
 
 ## ANDROID
-
-보물섬을 감싸고 있는 Activity에 FLAG\_SECURE 적용을 통해 쉽게 스크린 캡춰 방지를 할 수 있습니다.
+トレジャーアイランドを包含するActivityにFLAG_SECUREを適用することで、簡単にスクリーンキャプチャーを防止できます。
 
 {% tabs %}
 {% tab title="KOTLIN" %}
@@ -37,8 +36,7 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 ***
 
 ## iOS
-
-ANDROID 플랫폼과 달리 시스템에서 별도 지원은 되지 않아, `UITextField`의 isSecureTextEntry 속성을 통해 사용자가 스크린 캡춰를 할 수 없도록 우회 처리해야 합니다.
+ANDROIDプラットフォームとは異なり、システムでの個別サポートがないため、`UITextField`のisSecureTextEntry属性を使用してユーザーがスクリーンキャプチャーを行えないように迂回処理する必要があります。
 
 <pre class="language-swift" data-line-numbers><code class="lang-swift"><strong>private let preventedView = UITextField()
 </strong>
@@ -55,7 +53,6 @@ func applySecureContent() {
 <strong>    self.layer.superlayer?.addSublayer(self.preventedView.layer)
 </strong><strong>    self.preventedView.layer.sublayers?.last?.addSublayer(self.layer)
 </strong>}
-
 //..
 //..
 <strong>override func viewDidAppear(_ animated: Bool) {
@@ -64,4 +61,3 @@ func applySecureContent() {
     }
 }
 </code></pre>
-
