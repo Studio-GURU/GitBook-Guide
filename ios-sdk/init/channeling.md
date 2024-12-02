@@ -1,57 +1,51 @@
 ---
-description: 보물섬 iOS SDK를 사용하여 보물섬 메인화면을 실행 방법에 대해 안내합니다.
+description: トレジャーアイランドiOS SDKを使用してトレジャーアイランドのメイン画面を起動する方法についてご案内します。
 icon: user-group
 ---
 
-# 보물섬 채널링
+# トレジャーアイランドチャネリング
 
 {% hint style="success" %}
-파트너사의 회원을 보물섬 계정과 연동하여 사용하고자 하는 경우
-
+パートナー企業の会員をトレジャーアイランドアカウントと連携して使用する場合
 ***
-
-전달된 파트너사의 회원정보를 통해 보물섬 계정을 생성합니다.&#x20;
-
-:heavy\_check\_mark: **파트너사의 앱의 운영 방식에 따라 로그인 여부 확인이 가능한 기능 구현이 필요 할 수 있습니다.**
+提供されたパートナー企業の会員情報を通じてトレジャーアイランドアカウントを作成します。
+:heavy\_check\_mark: **パートナー企業のアプリの運用方式に応じて、ログイン状態確認が可能な機能の実装が必要になる場合があります。**
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>채널링 서비스 플로우</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>チャネリングサービスフロー</p></figcaption></figure>
 
 ***
 
-## 준비 사항
-
-보물섬 채널링 서비스 이용을 위해서는 [start.md](../start.md "mention") -> [.](./ "mention")의 기본 설정이 완료 되어야 합니다.
+## 準備事項
+トレジャーアイランドチャネリングサービスを利用するためには、[start.md](../start.md "mention") -> [.](./ "mention")の基本設定を完了する必要があります。
 
 ***
 
-## 연동 순서
-
-1. `Launcher.ChannelingBuilder` -> Builder 인스턴스를 생성합니다.
-2. `Launcher.ChannelingBuilder Option` 회원정보 및 필요한 옵션을 설정합니다.
-3. `Launcher.ChannelingBuilder build()` 함수를 호출하여 인스턴스를 생성합니다.
-4. 생성된 `Launcher` 인스턴스를 통해 `launch(completionHandler: (_ success: Bool) -> Void)` 함수를 호출 합니다.
+## 連携手順
+1. `Launcher.ChannelingBuilder` -> Builderインスタンスを生成します。
+2. `Launcher.ChannelingBuilder Option` 会員情報および必要なオプションを設定します。
+3. `Launcher.ChannelingBuilder build()`関数を呼び出してインスタンスを生成します。
+4. 生成された`Launcher`インスタンスを通じて`launch(completionHandler: (_ success: Bool) -> Void)`関数を呼び出します。
 
 ***
 
 ## Launcher.ChannelingBuilder
-
 {% code lineNumbers="true" %}
 ```swift
-// Builder 옵션과 함께 LaunchKit 인스턴스를 생성합니다.
+// BuilderオプションとともにLaunchKitインスタンスを生成します。
 let launchKit = LauncherKit.ChannelingBuilder()
-    // 사용자 정보를 설정합니다 (회원고유키, 성별)
-    // 사용자 로그인 상태의 경우만 해당 값을 설정 합니다.
-    .withUserId(userId: "{회원고유키}")
+    // ユーザー情報を設定します（会員固有キー、性別）
+    // ユーザーがログイン状態の場合のみ該当値を設定します。
+    .withUserId(userId: "{会員固有キー}")
     .withGender(gender: .male)
-    // Option: 광고 식별자를 설정합니다.
+    // Option: 広告識別子を設定します。
     .withAdvertisingId(advertisingId: "0000-0000-0000-0000-0000")
-    // Launcher 인스턴스를 생성합니다.
+    // Launcherインスタンスを生成します。
     .build()
     
-// 보물섬을 시작합니다.
+// トレジャーアイランドを起動します。
 launchKit.launch { completed in
-    // completed(bool) 성공여부
+    // completed(bool) 成功可否
 }
 ```
 {% endcode %}
@@ -59,62 +53,46 @@ launchKit.launch { completed in
 ***
 
 ### Options
-
 #### 🎈withUserId(userId: String)
-
 {% hint style="info" %}
-**유저의 로그인 상태에 따라 설정합니다.**
-
+**ユーザーのログイン状態に応じて設定します。**
 ***
-
-* 로그인을 필수로 사용하는 앱의 경우
-  * 유저의 고유 식별자를 설정합니다.
-* 로그인을 필수로 사용하지 않는 앱
-  * 별도 값을 설정하지 않으나, SDK에서 로그인 요구에 대한 콜백 처리가 필요합니다.
-  * 앱의 정책에 따라 로그인 유저에게만 접근을 허용 하는 방법등을 유연하게 적용 가능합니다.
+* ログインを必須とするアプリの場合
+  * ユーザーの固有識別子を設定します。
+* ログインを必須としないアプリの場合
+  * 別途値を設定しませんが、SDKでログイン要求に対するコールバック処理が必要です。
+  * アプリのポリシーに応じてログインユーザーのみアクセスを許可する方法などを柔軟に適用できます。
 {% endhint %}
 
-| Name     | Type   | Description |
-| -------- | ------ | ----------- |
-| `userId` | string | 파트너사 회원 고유키 |
+| Name     | Type   | Description        |
+| -------- | ------ | ------------------ |
+| `userId` | string | パートナー企業会員固有キー |
 
 ***
 
 #### 🎈withGender(gender: LauncherKit.Gender)
-
-회원의 성별을 설정합니다.
-
-:heavy\_check\_mark: 성별 정보 제공이 가능 할 경우 값을 설정합니다.
-
+会員の性別を設定します。
+:heavy\_check\_mark: 性別情報の提供が可能な場合、値を設定します。
 ⬇ LauncherKit.Gender
-
-| Name     | Type                     | Description   |
-| -------- | ------------------------ | ------------- |
-| `gender` | enum { `.MALE .FEMALE` } | 파트너사 회원 성별 정보 |
+| Name     | Type                     | Description          |
+| -------- | ------------------------ | -------------------- |
+| `gender` | enum { `.MALE .FEMALE` } | パートナー企業会員性別情報 |
 
 ***
 
 #### 🎈withAdvertisingId(advertisingId: String)
-
-&#x20;ANDROID ADID를 설정합니다.
-
-:heavy\_check\_mark: 설정이 없을 경우 SDK에서 별도 추출하여 사용합니다.
-
-| Name            | Type   | Description  |
-| --------------- | ------ | ------------ |
-| `advertisingId` | string | 안드로이드 광고 식별자 |
+ANDROID ADIDを設定します。
+:heavy\_check\_mark: 設定がない場合、SDKで別途抽出して使用します。
+| Name            | Type   | Description    |
+| --------------- | ------ | -------------- |
+| `advertisingId` | string | Android広告識別子 |
 
 ***
 
 ## Launcher.launch
-
-보물섬을 실행합니다. 상황에 따라 보물섬 메인 화면 또는 약관 동의 화면이 노출 됩니다.
-
+トレジャーアイランドを起動します。状況に応じてトレジャーアイランドのメイン画面または利用規約同意画面が表示されます。
 #### 🎈launch(completionHandler: (\_ success: Bool) -> Void)
-
-:heavy\_check\_mark: completionHandler의 success 값은 launch 실행 결과를 전달합니다.
-
-<table><thead><tr><th width="325">Name</th><th width="129">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>success</code></td><td>bool</td><td>success 실행 결과<br><code>true: 성공 / false: 실패</code></td></tr></tbody></table>
+:heavy\_check\_mark: completionHandlerのsuccess値はlaunch実行結果を伝達します。
+<table><thead><tr><th width="325">Name</th><th width="129">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>success</code></td><td>bool</td><td>実行結果<br><code>true: 成功 / false: 失敗</code></td></tr></tbody></table>
 
 ***
-
