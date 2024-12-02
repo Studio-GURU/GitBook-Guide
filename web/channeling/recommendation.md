@@ -1,9 +1,9 @@
 ---
-description: ユーザーが閲覧したコンテンツに基づくレコメンド一覧APIの使用方法について説明します。
 icon: thumbs-up
+description: ユーザーが閲覧したコンテンツに基づくレコメンド一覧APIの使用方法について説明します。
 ---
 
-# レコメンドコンテンツ一覧の照会
+# おすすめコンテンツリストの照会
 
 ## Version
 
@@ -123,10 +123,10 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
 
 ### 例1
 
-<div align="left"><figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>例1</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/todayspick_banner.jpg" alt=""><figcaption><p>例1</p></figcaption></figure></div>
 
 ***
 
 ### 例2
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/todayspick.jpg" alt=""><figcaption></figcaption></figure></div>
