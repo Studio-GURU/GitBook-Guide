@@ -1,38 +1,32 @@
 ---
-description: 보물섬의 추가 기능에 대해 안내 합니다.
+description: トレジャーアイランドの追加機能についてご案内します。
 icon: flask-gear
 ---
-
 # Options
+## ヘッダースタイル
+Launcher Builder Option -> withHeader(headerModel: SceneHeaderModel) 設定による構成
+:heavy\_check\_mark: <mark style="color:red;">**設定を行わない場合、ヘッダーは表示されません。**</mark>
 
-## Header Style
-
-Launcher Builder Option -> withHeader(headerModel: SceneHeaderModel) 설정을 통해 구성
-
-:heavy\_check\_mark: <mark style="color:red;">**설정을 하지 않을 경우 해더는 노출되지 않습니다.**</mark>
-
-### Preset
-
-기본 설정된 값을 사용하여 Header를 구성합니다.
-
+### プリセット
+基本設定値を使用してヘッダーを構成します。
 | View Height | Title            | Title Size | Title Style | Title Color |
 | ----------- | ---------------- | ---------- | ----------- | ----------- |
 | 48.5dp      | option(nullable) | 14dp       | bold        | #212121     |
 
-<figure><img src="../../.gitbook/assets/bmskit_header_preset (1).png" alt=""><figcaption><p>PRESET</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/bmskit_header_preset (1).png" alt=""><figcaption><p>プリセット</p></figcaption></figure>
 
-Back, Close, Title 노출 유무 설정이 가능 하며  "Back & Close" 는 창을 닫는 동일한 동작을 수행합니다.
+バック、クローズ、タイトルの表示有無を設定可能で、"Back & Close"は画面を閉じる同一の動作を実行します。
 
 {% tabs %}
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
 val headerModel = SceneHeaderModel.Builder()
-    // Header Title(빈값 타이틀 노출 되지 않음)
-    .withHeaderTitle(title = "보물섬")
-    // Header Use Back Button 
+    // ヘッダータイトル（空値の場合タイトル表示されません）
+    .withHeaderTitle(title = "トレジャーアイランド")
+    // ヘッダーバックボタン使用
     .withUseBackButton(use = true)
-    // Header Use Close Button
+    // ヘッダークローズボタン使用
     .withUseCloseButton(use = true)
     .build()
 //...
@@ -48,11 +42,11 @@ launcherBuilder.withHeader(headerModel = headerModel)
 {% code lineNumbers="true" %}
 ```java
 SceneHeaderModel.Builder headerBuilder = new SceneHeaderModel.Builder();
-// Header Title(빈값 타이틀 노출 되지 않음)
-headerBuilder.withHeaderTitle("보물섬");
-// Header Use Back Button
+// ヘッダータイトル（空値の場合タイトル表示されません）
+headerBuilder.withHeaderTitle("トレジャーアイランド");
+// ヘッダーバックボタン使用
 headerBuilder.withUseBackButton(true);
-// Header Use Close Button
+// ヘッダークローズボタン使用
 headerBuilder.withUseCloseButton(true);
 SceneHeaderModel headerModel = headerBuilder.build();
 //...
@@ -66,24 +60,21 @@ launcherBuilder.withHeader(headerModel);
 
 ***
 
-### Custom
+### カスタム
+アプリスタイルに合わせた独自のヘッダーを構成できます。
+:heavy\_check\_mark: ヘッダーレイアウトを構成します。
+:heavy\_check\_mark: ヘッダーレイアウトでアクションを処理するR.id値を定義します。
 
-앱 스타일에 맞는 별도의 헤더를 구성할 수 있습니다.
-
-:heavy\_check\_mark: Header Layout을 구성 합니다.
-
-:heavy\_check\_mark: Header Layout에서 액션을 처리할 R.id 값을 정의 합니다.
-
-<figure><img src="../../.gitbook/assets/bmskit_custom_header.png" alt=""><figcaption><p>CUSTOM HEADER</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/bmskit_custom_header.png" alt=""><figcaption><p>カスタムヘッダー</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="KOTLIN" %}
 {% code lineNumbers="true" %}
 ```kotlin
 val customHeaderModel = SceneHeaderModel.CustomBuilder()
-    // Custom Header Layout-ID
+    // カスタムヘッダーレイアウトID
     .withHeaderLayoutId(layoutId = R.layout.custom_header_view)
-    // Custom Header Layout Action View Id & Action(Click)
+    // カスタムヘッダーレイアウトアクションビューIDとアクション（クリック）
     .addHeaderAction(actionViewId = R.id.button_custom_header_back, action = object: SceneHeaderModel.IHeaderAction {
         override fun onAction(activity: Activity, webView: WebView?) {
             activity.finish()
@@ -121,9 +112,4 @@ launcherBuilder.withHeader(customModel);
 {% endtab %}
 {% endtabs %}
 
-
-
-
-
 ***
-
