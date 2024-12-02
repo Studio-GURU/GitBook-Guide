@@ -58,8 +58,6 @@ https://api-{env}.treasurecomics.com/external/recentView?sign=1724328195.3da0865
 
 {% tabs %}
 {% tab title="200" %}
-{% code lineNumbers="true" %}
-json
 [
   {
     "title": "龍を育てる10の方法",
@@ -73,18 +71,16 @@ json
     "returnUrl": "https://test.treasurecomics.com/content/list/cw4357a295d0",
     "isWaitFree": true,
     "waitFreeInfo": {
-        chargedTicket: true,
-        baseDate: "2024-09-27T03:00:00Z",
-        chargedDate: "2024-09-27T03:00:00Z"
+      chargedTicket: true,
+      baseDate: "2024-09-27T03:00:00Z",
+      chargedDate: "2024-09-27T03:00:00Z"
     }
   }
 ]
-{% endcode %}
-{% endtab %}
 
+{% endtab %}
 {% tab title="499" %}
-{% code lineNumbers="true" %}
-json
+
 {
   "code": "err_already_used_signature",
   "message": "既に使用されたSignatureです。",
@@ -94,7 +90,7 @@ json
     "stack": "Error: UNHANDLED\n    at _validateSignature (/var/app/current/build/controllers/external/toss/recentView/get.1.0.0.js:33:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
   }
 }
-{% endcode %}
+
 {% endtab %}
 {% endtabs %}
 
