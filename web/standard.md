@@ -1,37 +1,32 @@
 ---
-description: 보물섬 서비스 연동을 위한 방법을 안내합니다.
+description: ボムルソムサービスを連携する方法を案内します。
 icon: user
 ---
 
-# 보물섬
+# ボムルソム
 
 {% hint style="info" %}
-보물섬 연동
+ボムルソム連携
 
 ***
 
-:heavy\_check\_mark: 파트너사의 회원 정보를 사용하지 않습니다.
+:heavy\_check\_mark: パートナー企業の会員情報を使用しません。
 
-:heavy\_check\_mark: 보물섬의 별도 회원 정책을 사용합니다.
+:heavy\_check\_mark: ボムルソム独自の会員ポリシーを使用します。
 
-:ballot\_box\_with\_check:  <mark style="color:red;">**기존 화면이 아닌 새로운 창을 통해 보물섬을 실행하세요 !**</mark>
+:ballot\_box\_with\_check:  <mark style="color:red;">**既存画面ではなく、新しいウィンドウでボムルソムを実行してください！**</mark>
 {% endhint %}
 
-## 메인화면 진 경로
+## メイン画面アクセス方法
 
-:heavy\_check\_mark: **사용하려는 웹뷰(인앱 브라우져)에 아래의 주소를 호출 합니다.**
+:heavy\_check\_mark: **使用するWebView(アプリ内ブラウザ)で以下のアドレスを呼び出してください。**
 
 `https://{env}.treasurecomics.com/`
 
-:white\_check\_mark: `{env}` 값은 **영업팀을 통해 별도 전달** 됩니다.
+:white\_check\_mark: `{env}` の値は **営業チームを通じて個別に提供** されます。
 
 ***
 
-<figure><img src="../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>안내 메시지 노출 예시 화면</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>案内メッセージ表示例</p></figcaption></figure>
 
 ***
-
-
-
-
-
