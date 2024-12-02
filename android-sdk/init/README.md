@@ -1,28 +1,28 @@
 ---
-description: 보물섬 ANDROID SDK 초기화 방법에 대해 안내합니다.
+description: 宝島 ANDROID SDKの初期化方法についてご案内します。
 icon: laptop-code
 ---
 
-# 보물섬 서비스
+# 宝島サービス
 
 {% hint style="warning" %}
-**Application의 “onCreate()"에서 보물섬 ANDROID SDK 초기화가 진행 됩니다.**
+**Applicationの"onCreate()"で宝島 ANDROID SDKの初期化が行われます。**
 {% endhint %}
 
-사용중인 ":link:[Application Class](https://developer.android.com/reference/android/app/Application)"가 없다면, 신규로 생성후 초기화를 진행하시면 됩니다.
+":link:[Application Class](https://developer.android.com/reference/android/app/Application)"を使用していない場合は、新規作成後に初期化を行ってください。
 
 ***
 
-## 기본 모듈 적용 하기
+## 基本モジュールの適用
 
-기본 블록을 **앱(모듈) 수준의 "build.gradle"** 파일에 설정하세요.
+基本ブロックを**アプリ（モジュール）レベルの"build.gradle"**ファイルに設定してください。
 
 {% hint style="info" %}
-최신 버전(:white\_check\_mark: 24.10.4.9) 사용을 권장하며, :link:[release.md](../release.md "mention")를 통해 최신 버전을 확인 하세요.
+最新バージョン（:white_check_mark: 24.10.4.9）の使用を推奨します。:link:[release.md](../release.md "mention")で最新バージョンを確認してください。
 
 ***
 
-:heavy\_check\_mark: 추가 기능 사용을 위해 보물섬 PLUG 모듈의 추가될 수 있습니다.
+:heavy_check_mark: 追加機能の使用のために宝島PLUGモジュールが追加される場合があります。
 {% endhint %}
 
 {% code lineNumbers="true" %}
@@ -35,21 +35,21 @@ dependencies {
 
 ***
 
-## SDK 초기화 하기
+## SDKの初期化
 
-보물섬 SDK 사용을 위해 초기화를 진행 합니다.
+宝島SDKを使用するために初期化を行います。
 
-`Application`의 `onCreate()`에서 S`ceneConfig.Builder`를 통해 SDK를 초기화하세요.
+`Application`の`onCreate()`で`SceneConfig.Builder`を通じてSDKを初期化してください。
 
 ### **TreasureConfig.Builder**
 
 | Name        | Value           |
 | ----------- | --------------- |
 | `context`   | Android Context |
-| `appId`     | 연동앱의 고유 식별자     |
-| `appSecret` | 연동앱의 공유 식별자 검증키 |
+| `appId`     | 連携アプリの固有識別子 |
+| `appSecret` | 連携アプリの共有識別子検証キー |
 
-:heavy\_check\_mark: **생성된 Builder 인스턴스를 통해 옵션과 SDK 초기화를 진행합니다.**
+:heavy_check_mark: **生成されたBuilderインスタンスを通じてオプションとSDKの初期化を行います。**
 
 {% tabs %}
 {% tab title="KOTLIN" %}
@@ -63,9 +63,9 @@ class AppApplication : Application() {
             appId = "{APP-ID}", 
             appSecret = "{APP-SECRET}"
         )
-        // option 로그 출력 여부를 설정합니다.
+        // オプション：ログ出力の可否を設定します。
         .withAllowLog(allowLog = true)
-        // option 상태창의 색상을 설정 합니다.
+        // オプション：ステータスバーの色を設定します。
         .withStatusBarOption(
             config = SceneConfig.StatusBarOption(
                 allow = true,
@@ -73,11 +73,11 @@ class AppApplication : Application() {
                 isWindowLight = false
             )
         )
-        // option 푸시 알림 설정
+        // オプション：プッシュ通知設定
         .withNotificationOption(
             config = SceneConfig.NotificationOption(
                 allow = true,
-                channelName = "알림 채널명",
+                channelName = "通知チャンネル名",
                 iconResourceId = R.drawable.ic_notification
             )
         )
@@ -108,7 +108,7 @@ public class AppApplication extends Application {
         ));
         builder.withNotificationOption(new SceneConfig.NotificationOption(
             true,
-            "보물섬",
+            "宝島",
             R.drawable.ic_notify
         ));
         SceneConfig SceneConfig = builder.build();
@@ -126,49 +126,46 @@ public class AppApplication extends Application {
 
 #### 🎈withAllowLog(allowLog: boolean)
 
-SDK 로그 출력 여부를 설정 합니다.
+SDKのログ出力可否を設定します。
 
-:heavy\_check\_mark: 기본값 -> 로그가 출력되지 않습니다.
+:heavy_check_mark: デフォルト値 -> ログは出力されません。
 
 | Name       | Type    | Description            |
 | ---------- | ------- | ---------------------- |
-| `allowLog` | boolean | 로그 출력 여부 (`기본값 false`) |
+| `allowLog` | boolean | ログ出力可否（`デフォルト値 false`） |
 
 #### 🎈withStatusBarColor(config: TreasureConfig.StatusBarOption)
 
-화면의 상단 상태창의 색상을 설정합니다.
+画面上部のステータスバーの色を設定します。
 
-:heavy\_check\_mark: 기본값 -> 안드로이드 기본 설정이 적용됩니다.
+:heavy_check_mark: デフォルト値 -> Androidのデフォルト設定が適用されます。
 
 ⬇ TreasureConfig.StatusBarOption
 
 | Name             | Type                        | Description                                                                                                         |
 | ---------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `allow`          | boolean                     | 상태창 색상 적용 여부                                                                                                        |
-| `statusBarColor` | **'@'ColorInt**(`nullable`) | <p>상태창 배경 색상<br><code>기본값: Color.WHITE</code></p>                                                                   |
-| `isWindowLight`  | boolean(`nullable`)         | <p>상태창 텍스트 색상 설정<br><code>기본값: false</code><br><code>true: 어두운 색상의 텍스트</code><br><code>false: 밝은 색상의 텍스트</code></p> |
+| `allow`          | boolean                     | ステータスバーの色適用可否                                                                                                     |
+| `statusBarColor` | **'@'ColorInt**(`nullable`) | <p>ステータスバーの背景色<br><code>デフォルト値: Color.WHITE</code></p>                                                           |
+| `isWindowLight`  | boolean(`nullable`)         | <p>ステータスバーのテキスト色設定<br><code>デフォルト値: false</code><br><code>true: 暗い色のテキスト</code><br><code>false: 明るい色のテキスト</code></p> |
 
 #### 🎈withNotificationOption(config: TreasureConfig.NotificationOption)
 
 {% hint style="info" %}
-해당 옵션을 사용하기 위해서는 하다무 알림 서비스 SDK 적용이 필요합니다.
+このオプションを使用するためには、宝島通知サービスSDKの適用が必要です。
 
--> 하다무 알림 SDK 적용이 되어있지 않은 경우 정상 동작하지 않습니다.
+-> 宝島通知SDKが適用されていない場合は正常に動作しません。
 
 ***
 
-알림 서비스 SDK 적용 방법에 대해서는 "[plug-notification.md](../plug-notification.md "mention")" 가이드를 참고 바랍니다.
+通知サービスSDKの適用方法については"[plug-notification.md](../plug-notification.md "mention")"ガイドをご参照ください。
 {% endhint %}
 
-기다무 푸시 알림을 설정합니다.
+宝島プッシュ通知を設定します。
 
-:heavy\_check\_mark: 기본값 -> 푸시 알림을 사용하지 않습니다.
+:heavy_check_mark: デフォルト値 -> プッシュ通知を使用しません。
 
 ⬇ TreasureConfig.NotificationOption
 
-<table><thead><tr><th width="242">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>allow</code></td><td>boolean</td><td>푸시 알림 사용 여부<br><code>기본값: false</code></td></tr><tr><td><code>channelName</code></td><td>string(<code>nullable</code>)</td><td>푸시 알림 채널명<br><code>기본값: '보물섬'</code></td></tr><tr><td><code>smallIconResourceId</code></td><td><strong>'@'DrawableRes</strong>(<code>nullable</code>)</td><td>푸시 알림 아이콘 리소스<br><code>기본값: 보물섬 아이콘</code></td></tr></tbody></table>
-
-
+<table><thead><tr><th width="242">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>allow</code></td><td>boolean</td><td>プッシュ通知使用可否<br><code>デフォルト値: false</code></td></tr><tr><td><code>channelName</code></td><td>string(<code>nullable</code>)</td><td>プッシュ通知チャンネル名<br><code>デフォルト値: '宝島'</code></td></tr><tr><td><code>smallIconResourceId</code></td><td><strong>'@'DrawableRes</strong>(<code>nullable</code>)</td><td>プッシュ通知アイコンリソース<br><code>デフォルト値: 宝島アイコン</code></td></tr></tbody></table>
 
 ***
-
