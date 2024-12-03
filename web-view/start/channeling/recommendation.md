@@ -1,9 +1,9 @@
 ---
-description: ユーザーが閲覧したコンテンツに基づくレコメンデーションリストAPIの使用方法について説明します。
 icon: thumbs-up
+description: ユーザーが閲覧したコンテンツに基づくレコメンデーションリストAPIの使用方法について説明します。
 ---
 
-# レコメンデーションコンテンツ一覧の照会
+# おすすめコンテンツリストの照会
 
 ## バージョン
 
@@ -34,7 +34,7 @@ icon: thumbs-up
 
 ***
 
-:heavy_check_mark: $timeStamp$nonce$暗号化されたユーザー識別子
+:heavy\_check\_mark: $timeStamp$nonce$暗号化されたユーザー識別子
 
 上記の値をHmacSHA256 Hash -> Base64 Url Encodingを通じてシグネチャを生成します。
 
@@ -45,9 +45,7 @@ icon: thumbs-up
 * ユーザー識別子 -> 会員を区別できる識別子
 {% endhint %}
 
-<table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p> <code>timestmap.nonce.encryptedUserId.signature</code></p><hr><p> <mark style="background-color:red;">timestamp、nonce、useridの値は<strong>シグネチャ生成に使用された値</strong>を渡します。</mark></p></td></tr></tbody></table>
-
-
+<table data-full-width="false"><thead><tr><th width="127">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>sign</code></td><td>string</td><td><p><code>timestmap.nonce.encryptedUserId.signature</code></p><hr><p><mark style="background-color:red;">timestamp、nonce、useridの値は<strong>シグネチャ生成に使用された値</strong>を渡します。</mark></p></td></tr></tbody></table>
 
 ```
 // get usage example
@@ -56,7 +54,7 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
 
 ### **レスポンス**
 
-<table><thead><tr><th width="239">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>recommendationSN</code></td><td>number</td><td>シーケンス</td></tr><tr><td><code>title</code></td><td>string</td><td>タイトル</td></tr><tr><td><code>description</code></td><td>string</td><td>内容</td></tr><tr><td><code>thumbnail</code></td><td>string</td><td>画像パス</td></tr><tr><td><code>contentType</code></td><td>string</td><td>ウェブトゥーン | ウェブ小説</td></tr><tr><td><code>contentCName</code></td><td>string</td><td>作品キー</td></tr><tr><td><code>episodeNo</code></td><td>number</td><td>エピソード番号</td></tr><tr><td><code>genre</code></td><td>string</td><td>ジャンル</td></tr><tr><td><code>link</code></td><td>string</td><td><p>提供されるリンクの後ろにsignを付けて渡す</p><p>例：<code>&sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ</code></p></td></tr><tr><td><code>returnUrl</code></td><td>string</td><td>最終遷移リンク（参考用）</td></tr><tr><td><code>order</code></td><td>number</td><td>表示優先順位（同じ値が存在可能）</td></tr><tr><td><code>recommendationDate</code></td><td>string</td><td>レコメンデーション日付（yyyy-MM-dd）</td></tr></tbody></table>
+<table><thead><tr><th width="239">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>recommendationSN</code></td><td>number</td><td>シーケンス</td></tr><tr><td><code>title</code></td><td>string</td><td>タイトル</td></tr><tr><td><code>description</code></td><td>string</td><td>内容</td></tr><tr><td><code>thumbnail</code></td><td>string</td><td>画像パス</td></tr><tr><td><code>contentType</code></td><td>string</td><td>ウェブトゥーン | ウェブ小説</td></tr><tr><td><code>contentCName</code></td><td>string</td><td>作品キー</td></tr><tr><td><code>episodeNo</code></td><td>number</td><td>エピソード番号</td></tr><tr><td><code>genre</code></td><td>string</td><td>ジャンル</td></tr><tr><td><code>link</code></td><td>string</td><td><p>提供されるリンクの後ろにsignを付けて渡す</p><p>例：<code>&#x26;sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ</code></p></td></tr><tr><td><code>returnUrl</code></td><td>string</td><td>最終遷移リンク（参考用）</td></tr><tr><td><code>order</code></td><td>number</td><td>表示優先順位（同じ値が存在可能）</td></tr><tr><td><code>recommendationDate</code></td><td>string</td><td>レコメンデーション日付（yyyy-MM-dd）</td></tr></tbody></table>
 
 **レスポンスコード**
 
@@ -179,17 +177,4 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
 
 ## レコメンデーションコンテンツ一覧実装画面例
 
-<div align="left"><figure><img src="../../../.gitbook/assets/bms_recommendation_2.png" alt="" width="375"><figcaption></figcaption></figure></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div align="left"><figure><img src="../../../.gitbook/assets/todayspick_v2.jpg" alt=""><figcaption></figcaption></figure></div>
