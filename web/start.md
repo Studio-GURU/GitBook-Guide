@@ -1,6 +1,6 @@
 ---
-description: ボムルソムが提供するサービスを一般ブラウザで連携する際に必要な設定について確認してください。
 icon: star-shooting
+description: ボムルソムが提供するサービスを一般ブラウザで連携する際に必要な設定について確認してください。
 ---
 
 # ボムルソムを始める
@@ -12,24 +12,14 @@ icon: star-shooting
 
 一般的なブラウザを通じてサービスを連携する際に参考にしてください。
 
-[WEB VIEW(アプリ内ブラウザ)](../web-view/start/) または [ANDROID SDK](broken-reference)、[iOS SDK](broken-reference) の連携方法については、別途ガイドを参照してください。
+[WEB VIEW(アプリ内ブラウザ)](../web-view/start/) または [ANDROID SDK](broken-reference/)、[iOS SDK](broken-reference/) の連携方法については、別途ガイドを参照してください。
 
 ***
 
-:ballot\_box\_with\_check:  <mark style="color:red;">**既存画面ではなく、新しいウィンドウでボムルソムを実行してください！**</mark>
+:ballot\_box\_with\_check: <mark style="color:red;">**既存画面ではなく、新しいウィンドウでボムルソムを実行してください！**</mark>
 {% endhint %}
 
-***
-
 ## サービス紹介
-
-### [ボムルソムサービス](standard.md)
-
-:heavy\_check\_mark: パートナー企業の会員情報を使用しません。
-
-:heavy\_check\_mark: ボムルソム独自の会員ポリシーを使用します。
-
-***
 
 ### [ボムルソムチャネリングサービス](channeling/)
 
@@ -38,6 +28,8 @@ icon: star-shooting
 :heavy\_check\_mark: パートナー企業の会員ポリシーを使用します。
 
 :heavy\_check\_mark: メイン画面へのアクセス経路に <mark style="color:red;">**sign parameter**</mark> を渡してボムルソムのメイン画面にアクセスします。
+
+***
 
 #### コンテンツ照会
 
