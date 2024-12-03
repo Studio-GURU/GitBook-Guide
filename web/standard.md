@@ -27,6 +27,6 @@ description: ボムルソムサービスを連携する方法を案内します�
 
 ***
 
-<figure><img src="../.gitbook/assets/bomulseom_jp (1).jpg" alt=""><figcaption><p>案内メッセージ表示例</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/bomulseom_jp.jpg" alt=""><figcaption><p>案内メッセージ表示例</p></figcaption></figure>
 
 ***

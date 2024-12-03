@@ -35,7 +35,7 @@ description: トレジャーアイランドサービスの連携方法につい�
 :heavy\_check\_mark: message : "**ウェブトゥーンサイトに移動しました。**"
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/bomulseom_jp (1).jpg" alt=""><figcaption><p>お知らせメッセージ表示例画面</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/bomulseom_jp.jpg" alt=""><figcaption><p>お知らせメッセージ表示例画面</p></figcaption></figure>
 
 ***
 

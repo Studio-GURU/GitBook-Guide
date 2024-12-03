@@ -49,7 +49,7 @@ https://test.treasurecomics.com/gateway/common?sign=1724922215.7b82817d9487471a8
 
 ***
 
-<figure><img src="../../.gitbook/assets/bomulseom_jp (1).jpg" alt=""><figcaption><p>案内メッセージ表示例</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/bomulseom_jp.jpg" alt=""><figcaption><p>案内メッセージ表示例</p></figcaption></figure>
 
 ***
 
