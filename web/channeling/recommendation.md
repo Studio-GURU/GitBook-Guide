@@ -129,4 +129,4 @@ https://api-{env}.treasurecomics.com/external/recommendation?sign=1724328195.3da
 
 ### 例2
 
-<div align="left"><figure><img src="../../.gitbook/assets/todayspick.jpg" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/todayspick_v2.jpg" alt=""><figcaption></figcaption></figure></div>
