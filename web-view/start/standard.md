@@ -1,9 +1,9 @@
 ---
-description: トレジャーアイランドサービスの連携方法についてご案内します。
 icon: user
+description: トレジャーアイランドサービスの連携方法についてご案内します。
 ---
 
-# トレジャーアイランド
+# ボムルソム
 
 {% hint style="info" %}
 トレジャーアイランド連携
@@ -35,7 +35,7 @@ icon: user
 :heavy\_check\_mark: message : "**ウェブトゥーンサイトに移動しました。**"
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Simulator Screenshot - iPhone 16 Pro - 2024-10-25 at 14.08.11.png" alt=""><figcaption><p>お知らせメッセージ表示例画面</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/bomulseom_jp (1).jpg" alt=""><figcaption><p>お知らせメッセージ表示例画面</p></figcaption></figure>
 
 ***
 
@@ -64,7 +64,7 @@ Androidアプリでウェブビューを通じてアプリを起動するには�
 
 JavaScript SDKがKakaoTalk起動のための`Intent URI`を生成して呼び出します。ウェブビューでは:link:[WebViewClient#shouldOverrideUrlLoading](https://developer.android.com/reference/android/webkit/WebViewClient#shouldOverrideUrlLoading\(android.webkit.WebView,%20android.webkit.WebResourceRequest\))メソッドをオーバーライドして`Intent`をパースし、該当`Activity`を実行する必要があります。
 
-[Previous code blocks remain unchanged - maintaining original Kotlin code]
+\[Previous code blocks remain unchanged - maintaining original Kotlin code]
 
 ***
 
@@ -74,10 +74,10 @@ JavaScript SDKがKakaoTalk起動のための`Intent URI`を生成して呼び出
 
 iOSアプリの場合、:link:[ユニバーサルリンク](https://developers.kakao.com/docs/latest/ko/documentation-guideline/glossary#%E3%85%87)が呼び出された場合は別途処理なしでアプリ起動が可能ですが、:link:[カスタムURLスキーム](https://developers.kakao.com/docs/latest/ko/documentation-guideline/glossary#%E3%85%8B)が呼び出された場合、該当URLをウェブビューで`open(_ url:)`メソッドを呼び出してアプリを起動する必要があります。
 
-[Previous code blocks remain unchanged - maintaining original Swift code]
+\[Previous code blocks remain unchanged - maintaining original Swift code]
 
 ***
 
 ## メイン画面
 
-<div align="left"><figure><img src="../../.gitbook/assets/bms_main.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/bomulseom_jp2.jpg" alt=""><figcaption></figcaption></figure></div>
