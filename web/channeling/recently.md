@@ -51,17 +51,44 @@ description: 最近閲覧した作品を照会するAPIの使用方法につい�
 
 ### **Response**
 
-<table><thead><tr><th width="270">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>title</code></td><td>string</td><td>タイトル</td></tr><tr><td><code>description</code></td><td>string</td><td>内容</td></tr><tr><td><code>thumbnail</code></td><td>string</td><td>画像パス</td></tr><tr><td><code>contentType</code></td><td>string</td><td>ウェブトゥーン | ウェブ小説</td></tr><tr><td><code>contentCName</code></td><td>string</td><td>作品キー</td></tr><tr><td><code>episodeNo</code></td><td>number</td><td>話数</td></tr><tr><td><code>genre</code></td><td>string</td><td>ジャンル</td></tr><tr><td><code>link</code></td><td>string</td><td><p>提供されるリンクの後ろにsignを付けて伝達</p><p>例）<code>&#x26;sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ</code></p></td></tr><tr><td><code>returnUrl</code></td><td>string</td><td>最終移動リンク（参考用）</td></tr><tr><td><code>isWaitFree</code></td><td>boolean</td><td>待てば無料の可否</td></tr><tr><td><code>waitFreeInfo(optional)</code></td><td>object</td><td>待てば無料チケット情報</td></tr><tr><td></td><td></td><td><p><code>{</code><br><code>chargedTicket: boolean,</code><br><code>baseDate: Date,</code><br><code>chargedDate: Date</code><br><code>}</code></p><p><span data-gb-custom-inline data-tag="emoji" data-code="2714">✔️</span> <mark style="background-color:purple;">chargedTicket: 待てば無料チケットの所持可否</mark><br><span data-gb-custom-inline data-tag="emoji" data-code="2714">✔️</span> <mark style="background-color:purple;">baseDate: チケット計算基準日</mark><br><span data-gb-custom-inline data-tag="emoji" data-code="2714">✔️</span> <mark style="background-color:purple;">chargeDate: チケット充電日</mark></p></td></tr></tbody></table>
+<table><thead><tr><th width="270">Fields</th><th width="106">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>title</code></td><td>string</td><td>タイトル</td></tr><tr><td><code>description</code></td><td>string</td><td>内容</td></tr><tr><td><code>thumbnail</code></td><td>string</td><td>画像パス</td></tr><tr><td><code>contentType</code></td><td>string</td><td>ウェブトゥーン | ウェブ小説</td></tr><tr><td><code>contentCName</code></td><td>string</td><td>作品キー</td></tr><tr><td><code>genre</code></td><td>string</td><td>ジャンル</td></tr><tr><td><code>link</code></td><td>string</td><td><p>提供されるリンクの後ろにsignを付けて伝達</p><p>例）<code>&#x26;sign=1724328195.3da08653e6c1420aac89eecdf5c20063.OGMzYjUzYTUyYjE1YTJiNDAyZGM3MGJiZmMzMDI2YWE1NDg0YWY2ZTdjNjMyZTJlMTdjMjQyOGU1NjZhYjdhYQ</code></p></td></tr><tr><td><code>returnUrl</code></td><td>string</td><td>最終移動リンク（参考用）</td></tr><tr><td><code>isWaitFree</code></td><td>boolean</td><td>待てば無料の可否</td></tr><tr><td><code>waitFreeInfo(optional)</code></td><td>object</td><td>待てば無料チケット情報</td></tr><tr><td></td><td></td><td><p><code>{</code><br><code>chargedTicket: boolean,</code><br><code>baseDate: Date,</code><br><code>chargedDate: Date</code><br><code>}</code></p><p><span data-gb-custom-inline data-tag="emoji" data-code="2714">✔️</span> <mark style="background-color:purple;">chargedTicket: 待てば無料チケットの所持可否</mark><br><span data-gb-custom-inline data-tag="emoji" data-code="2714">✔️</span> <mark style="background-color:purple;">baseDate: チケット計算基準日</mark><br><span data-gb-custom-inline data-tag="emoji" data-code="2714">✔️</span> <mark style="background-color:purple;">chargeDate: チケット充電日</mark></p></td></tr></tbody></table>
 
 **Response Code**
 
 {% tabs %}
 {% tab title="200" %}
-\[ { "title": "龍を育てる10の方法", "description": null, "thumbnail": "https://s.treasurecomics.com/images/test/webtoon/cw4357a295d0/thumbnail\_1718174618.jpg", "contentType": "ウェブトゥーン", "contentCName": "cw4357a295d0", "contentEpisodeTitle": "第1話", "genre": "ドラマ,ホラー/スリラー", "link": "https://test.treasurecomics.com/gateway/toss?returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fcontent%2Flist%2Fcw4357a295d0", "returnUrl": "https://test.treasurecomics.com/content/list/cw4357a295d0", "isWaitFree": true, "waitFreeInfo": { chargedTicket: true, baseDate: "2024-09-27T03:00:00Z", chargedDate: "2024-09-27T03:00:00Z" } } ]
+```json
+[{ 
+    "title": "龍を育てる10の方法", 
+    "description": null, 
+    "thumbnail": "https://s.treasurecomics.com/images/test/webtoon/cw4357a295d0/thumbnail_1718174618.jpg",
+    "contentType": "ウェブトゥーン", 
+    "contentCName": "cw4357a295d0", 
+    "genre": "ドラマ,ホラー/スリラー", 
+    "link": "https://test.treasurecomics.com/gateway/toss?returnUrl=https%3A%2F%2Ftest.treasurecomics.com%2Fcontent%2Flist%2Fcw4357a295d0", 
+    "returnUrl": "https://test.treasurecomics.com/content/list/cw4357a295d0", 
+    "isWaitFree": true, 
+    "waitFreeInfo": { 
+        chargedTicket: true, 
+        baseDate: "2024-09-27T03:00:00Z", 
+        chargedDate: "2024-09-27T03:00:00Z" 
+        } 
+    }]
+```
 {% endtab %}
 
 {% tab title="499" %}
-{ "code": "err\_already\_used\_signature", "message": "既に使用されたSignatureです。", "data": null, "appendix": { "reason": "既に使用されたSignatureです。", "stack": "Error: UNHANDLED\n at \_validateSignature (/var/app/current/build/controllers/external/toss/recentView/get.1.0.0.js:33:15)\n at process.processTicksAndRejections (node:internal/process/task\_queues:95:5)" } }
+```json
+{ 
+    "code": "err_already_used_signature", 
+    "message": "既に使用されたSignatureです。", 
+    "data": null, 
+    "appendix": { 
+        "reason": "既に使用されたSignatureです。", 
+        "stack": "Error: UNHANDLED\n at _validateSignature (/var/app/current/build/controllers/external/toss/recentView/get.1.0.0.js:33:15)\n at process.processTicksAndRejections (node:internal/process/task_queues:95:5)" 
+    } 
+}
+```
 {% endtab %}
 {% endtabs %}
 
