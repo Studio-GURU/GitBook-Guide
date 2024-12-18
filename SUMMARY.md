@@ -1,4 +1,4 @@
-# 目次
+# Table of contents
 
 * [製品案内](README.md)
 
@@ -17,12 +17,10 @@
   * [ボムルソムチャネリング](web-view/start/channeling/README.md)
     * [おすすめコンテンツリストの照会](web-view/start/channeling/recommendation.md)
     * [最近見た作品の照会](web-view/start/channeling/recently.md)
-* [追加機能 (オプション)](web-view/webview-option/README.md)
-  * [WebView設定ガイド](web-view/webview-option/webview/README.md)
-    * [Android WebView](web-view/webview-option/webview/android-webview.md)
-    * [iOS WKWebView](web-view/webview-option/webview/ios-wkwebview.md)
-  * [コンテンツ保護](web-view/webview-option/undefined.md)
-  * [アプリ内購入サービス](web-view/webview-option/undefined-1.md)
+* [WebView設定ガイド](web-view/webview-config/README.md)
+  * [Android WebView](web-view/webview-config/android-webview.md)
+  * [iOS WKWebView](web-view/webview-config/ios-wkwebview.md)
+* [コンテンツ保護](web-view/undefined.md)
 
 ## ANDROID SDK
 
